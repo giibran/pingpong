@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id_player1: 1
+  id_player2: 1
+  score_player1: 1
+  score_player2: 1
+  date: 2013-09-14
+
+two:
+  id_player1: 1
+  id_player2: 1
+  score_player1: 1
+  score_player2: 1
+  date: 2013-09-14
