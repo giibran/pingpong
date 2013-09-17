@@ -10,6 +10,7 @@ class MatchesController < ApplicationController
   # GET /matches/1
   # GET /matches/1.json
   def show
+    @players = Player.all
   end
 
   # GET /matches/new
@@ -20,6 +21,7 @@ class MatchesController < ApplicationController
 
   # GET /matches/1/edit
   def edit
+    @players = Player.all
   end
 
   # POST /matches

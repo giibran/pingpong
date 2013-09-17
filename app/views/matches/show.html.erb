@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Id player1:</strong>
-  <%= @match.id_player1 %>
-</p>
-
-<p>
-  <strong>Id player2:</strong>
-  <%= @match.id_player2 %>
+  <strong>Player1:</strong>
+  <%= @players.find(@match.id_player1).name %>
 </p>
 
 <p>
   <strong>Score player1:</strong>
   <%= @match.score_player1 %>
+</p>
+
+<p>
+  <strong>Player2:</strong>
+  <%= @players.find(@match.id_player2).name %>
 </p>
 
 <p>
