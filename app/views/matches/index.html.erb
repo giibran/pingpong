@@ -3,9 +3,9 @@
 <table>
   <thead>
     <tr>
-      <th>Id player1</th>
+      <th>Player1</th>
       <th>Score player1</th>
-      <th>Id player2</th>
+      <th>Player2</th>
       <th>Score player2</th>
       <th>Date</th>
       <th></th>
@@ -17,9 +17,9 @@
   <tbody>
     <% @matches.each do |match| %>
       <tr>
-        <td><%= match.id_player1 %></td>
+        <td><%= @players.find(match.id_player1).name %></td>
         <td><%= match.score_player1 %></td>
-        <td><%= match.id_player2 %></td>
+        <td><%= @players.find(match.id_player2).name %></td>
         <td><%= match.score_player2 %></td>
         <td><%= match.date %></td>
         <td><%= link_to 'Show', match %></td>
