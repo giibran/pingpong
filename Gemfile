@@ -37,12 +37,10 @@ group :doc do
 end
 
 group :production do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'pg'
+  gem "pg", "~> 0.17.0"
 end
 
 group :development do
-  # bundle exec rake doc:rails generates the API under doc/api.
   gem "mysql2", "~> 0.3.13"
 end
 
