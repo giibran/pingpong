@@ -9,7 +9,6 @@ gem "debugger", "~> 1.6.1"
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 # Use sqlite3 as the database for Active Record
-gem "mysql2", "~> 0.3.13"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -35,6 +34,16 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :production do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'pg'
+end
+
+group :development do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem "mysql2", "~> 0.3.13"
 end
 
 # Use ActiveModel has_secure_password
