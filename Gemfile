@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-gem 'therubyracer'
+gem 'therubyracer', '0.12.0'
+gem 'libv8', '3.16.14.3'
 gem 'execjs'
 gem "debugger", "~> 1.6.1"
 
