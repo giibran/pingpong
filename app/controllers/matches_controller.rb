@@ -29,6 +29,7 @@ class MatchesController < ApplicationController
   # POST /matches.json
   def create
     @match = Match.new(match_params)
+    @players = Player.all #ToDo DELETE THIS AFTER FIX THE RELATION
 
     respond_to do |format|
       if @match.save
