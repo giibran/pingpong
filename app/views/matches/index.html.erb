@@ -1,5 +1,4 @@
-<h1>Listing matches</h1>
-
+<h1>Listing matches</h1> <%= button_to "Click here to add a new match", new_match_path, :method => :get %>
 <table>
   <thead>
     <tr>
@@ -29,6 +28,7 @@
 </table>
 
 <br>
+<%= will_paginate @posts %>
 
 <%= link_to 'New Match', new_match_path %> |
 <%= link_to 'Players', players_path %>
