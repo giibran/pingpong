@@ -7,8 +7,7 @@ gem 'libv8', '3.16.14.3'
 gem 'execjs'
 gem "debugger", "~> 1.6.1"
 gem 'will_paginate', '~> 3.0.0'
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :github => 'anjlab/bootstrap-rails'
+gem "twitter-bootstrap-rails"
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets

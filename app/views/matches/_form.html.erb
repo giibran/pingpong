@@ -12,7 +12,10 @@
   <% end %>
   <div class="field">
     <% @players.each do |player| %>
-    <%= f.radio_button :id_player1, player.id %><label for="id_player1_false"><%= player.name %></label>
+    <label>
+      <%= f.radio_button :id_player1, player.id %>
+      <%= player.name %>
+    </label>
   <% end %>
   </div>
   <div class="field">
@@ -22,7 +25,10 @@
 
   <div class="field">
     <% @players.each do |player| %>
-    <%= f.radio_button :id_player2, player.id %><label for="id_player2_false"><%= player.name %></label>
+    <label>
+      <%= f.radio_button :id_player2, player.id %>
+      <%= player.name %>
+    </label>
   <% end %>
   </div>
   <div class="field">
