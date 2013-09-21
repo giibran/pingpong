@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for(@match) do |f| %>
   <% if @match.errors.any? %>
     <div id="error_explanation">
@@ -10,32 +11,48 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <% @players.each do |player| %>
-    <label>
-      <%= f.radio_button :id_player1, player.id %>
-      <%= player.name %>
-    </label>
-  <% end %>
-  </div>
-  <div class="field">
-    <%= f.label :score_player1 %><br>
-    <%= f.text_field :score_player1 %>
-  </div>
 
-  <div class="field">
-    <% @players.each do |player| %>
-    <label>
-      <%= f.radio_button :id_player2, player.id %>
-      <%= player.name %>
-    </label>
-  <% end %>
-  </div>
-  <div class="field">
-    <%= f.label :score_player2 %><br>
-    <%= f.text_field :score_player2 %>
-  </div>
-  <div class="field">
+      <div class="row-fluid">
+        <div class="span6">
+          <div class="field">
+            <div class="row">
+              <% @players.each do |player| %>
+                <div class="span4">
+                  <label>
+                    <%= f.radio_button :id_player1, player.id %>
+                    <%= player.name %>
+                  </label>
+                </div>
+              <% end %>
+            </div><!--/row-->
+          </div>
+          <div class="field">
+            <%= f.label :score_player1 %><br>
+            <%= f.text_field :score_player1 %>
+          </div>
+        </div><!--/row-->
+        <div class="row-fluid">
+          <div class="span6">
+          <div class="field">
+            <div class="row">
+              <% @players.each do |player| %>
+                <div class="span4">
+                  <label>
+                    <%= f.radio_button :id_player2, player.id %>
+                    <%= player.name %>
+                  </label>
+                </div>
+              <% end %>
+            </div><!--/row-->
+          </div>
+          <div class="field">
+            <%= f.label :score_player2 %><br>
+            <%= f.text_field :score_player2 %>
+          </div>
+        </div>
+      </div><!--/row-->
+    
+  <div class="field" style = "display: none; ">
     <%= f.label :date %><br>
     <%= f.date_select :date %>
   </div>
@@ -43,3 +60,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div> <!-- /container -->
