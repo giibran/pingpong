@@ -2,8 +2,7 @@
 
 <p>
   <strong>Player1:</strong>
-  <%= @match.player1.name %>
-  <%= @players.find(@match.id_player1).name %>
+  <%= @players.find(@match.player1_id).name %>
 </p>
 
 <p>
@@ -13,7 +12,7 @@
 
 <p>
   <strong>Player2:</strong>
-  <%= @players.find(@match.id_player2).name %>
+  <%= @players.find(@match.player2_id).name %>
 </p>
 
 <p>

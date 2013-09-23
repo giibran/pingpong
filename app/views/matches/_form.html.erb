@@ -19,7 +19,7 @@
               <% @players.each do |player| %>
                 <div class="span4">
                   <label>
-                    <%= f.radio_button :id_player1, player.id %>
+                    <%= f.radio_button :player1_id, player.id %>
                     <%= player.name %>
                   </label>
                 </div>
@@ -38,7 +38,7 @@
               <% @players.each do |player| %>
                 <div class="span4">
                   <label>
-                    <%= f.radio_button :id_player2, player.id %>
+                    <%= f.radio_button :player2_id, player.id %>
                     <%= player.name %>
                   </label>
                 </div>

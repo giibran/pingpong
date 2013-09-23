@@ -15,9 +15,9 @@
   <tbody>
     <% @matches.each do |match| %>
       <tr>
-        <td><%= @players.find(match.id_player1).name %></td>
+        <td><%= @players.find(match.player1_id).name %></td>
         <td><%= match.score_player1 %></td>
-        <td><%= @players.find(match.id_player2).name %></td>
+        <td><%= @players.find(match.player2_id).name %></td>
         <td><%= match.score_player2 %></td>
         <td><%= winner(match) %></td>
         <td><%= match.date %></td>
