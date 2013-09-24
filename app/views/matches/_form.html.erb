@@ -16,38 +16,25 @@
         <div class="span6">
           <div class="field">
             <div class="row">
-              <% @players.each do |player| %>
-                <div class="span4">
-                  <label>
-                    <%= f.radio_button :player1_id, player.id %>
-                    <%= player.name %>
-                  </label>
-                </div>
-              <% end %>
+              <%= f.collection_select :player1_id, Player.order(:name),:id,:name, include_blank: false %>
+              <div class="field">
+                <%= f.label :score_player1 %><br>
+                <%= f.text_field :score_player1 %>
+              </div>
             </div><!--/row-->
           </div>
-          <div class="field">
-            <%= f.label :score_player1 %><br>
-            <%= f.text_field :score_player1 %>
-          </div>
+          
         </div><!--/row-->
         <div class="row-fluid">
           <div class="span6">
           <div class="field">
             <div class="row">
-              <% @players.each do |player| %>
-                <div class="span4">
-                  <label>
-                    <%= f.radio_button :player2_id, player.id %>
-                    <%= player.name %>
-                  </label>
-                </div>
-              <% end %>
+              <%= f.collection_select :player2_id, Player.order(:name),:id,:name, include_blank: false %>
+              <div class="field">
+                <%= f.label :score_player2 %><br>
+                <%= f.text_field :score_player2 %>
+              </div>
             </div><!--/row-->
-          </div>
-          <div class="field">
-            <%= f.label :score_player2 %><br>
-            <%= f.text_field :score_player2 %>
           </div>
         </div>
       </div><!--/row-->
