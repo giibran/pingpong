@@ -15,12 +15,12 @@
   <tbody>
     <% @matches.each do |match| %>
       <tr>
-        <td><%= @players.find(match.player1_id).name %></td>
+        <td><%= match.player1.name %></td>
         <td><%= match.score_player1 %></td>
-        <td><%= @players.find(match.player2_id).name %></td>
+        <td><%= match.player2.name %></td>
         <td><%= match.score_player2 %></td>
         <td><%= winner(match) %></td>
-        <td><%= match.date %></td>
+        <td><%= time_ago_in_words(match.created_at)%></td>
         <td><%= link_to 'Edit', edit_match_path(match) %></td>
       </tr>
     <% end %>

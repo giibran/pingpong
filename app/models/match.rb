@@ -1,6 +1,6 @@
 class Match < ActiveRecord::Base
-	has_one :player1, :class_name => 'Player'
-  has_one :player2, :class_name => 'Player'
+	belongs_to :player1, :class_name => 'Player', :foreign_key => 'player1_id'
+  belongs_to :player2, :class_name => 'Player', :foreign_key => 'player2_id'
   validates :player1_id, presence: true
   validates :score_player1, presence: true
   validates :player2_id, presence: true
