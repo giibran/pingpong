@@ -7,4 +7,16 @@ class Match < ActiveRecord::Base
   validates :score_player2, presence: true
   validates :score_player1, numericality: { only_integer: true }
   validates :score_player2, numericality: { only_integer: true }
+
+  before_save :calculate_winner
+
+  private
+
+  	def calculate_winner
+  		if(self.score_player1 > self.score_player2)
+				self.winner_id = self.player1_id
+			else
+				self.winner_id = self.player2_id
+			end
+  	end
 end
