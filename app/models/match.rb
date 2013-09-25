@@ -8,6 +8,7 @@ class Match < ActiveRecord::Base
   validates :score_player1, numericality: { only_integer: true }
   validates :score_player2, numericality: { only_integer: true }
 
+  before_create :calculate_winner
   before_save :calculate_winner
 
   private
