@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= gravatar_for @player %>
+</p>
+<p>
   <strong>Name:</strong>
   <%= @player.name %>
 </p>
@@ -8,6 +11,17 @@
   <strong>email:</strong>
   <%= @player.email %>
 </p>
-
+<p>
+  <strong>Total Games:</strong>
+  <%= @player.matches.count %>
+</p>
+<p>
+  <strong>Wins Games:</strong>
+  <%= @player.matches.where(:winner_id => @player.id).count %>
+</p>
+<p>
+  <strong>Losses Games:</strong>
+  <%= @player.matches.count - @player.matches.where(:winner_id => @player.id).count%>
+</p>
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
