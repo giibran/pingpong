@@ -7,4 +7,17 @@ class Player < ActiveRecord::Base
   def matches
   	Match.where("player1_id = ? OR player2_id = ?", id, id)
   end
+
+  def wins
+  	self.matches.where(:winner_id => self.id).count
+  end
+
+  def losses
+  	self.matches.count - self.matches.where(:winner_id => self.id).count
+  end
+
+  def win_ratio
+  	(self.wins * 100) / self.matches.count
+  end
+
 end

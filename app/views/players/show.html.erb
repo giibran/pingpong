@@ -17,11 +17,15 @@
 </p>
 <p>
   <strong>Wins Games:</strong>
-  <%= @player.matches.where(:winner_id => @player.id).count %>
+  <%= @player.wins %>
 </p>
 <p>
   <strong>Losses Games:</strong>
-  <%= @player.matches.count - @player.matches.where(:winner_id => @player.id).count%>
+  <%= @player.losses%>
+</p>
+<p>
+  <strong>Win rate:</strong>
+  <%= @player.win_ratio%>%
 </p>
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
