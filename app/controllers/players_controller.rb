@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
-  # GET /players
+  # GET /players/
   # GET /players.json
   def index
     @players = Player.all
@@ -59,6 +59,10 @@ class PlayersController < ApplicationController
       format.html { redirect_to players_url }
       format.json { head :no_content }
     end
+  end
+
+  def stats
+    @players = Player.all
   end
 
   private

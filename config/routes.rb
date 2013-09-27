@@ -1,7 +1,11 @@
 Pingpong::Application.routes.draw do
   resources :matches
 
-  resources :players
+  resources :players do
+    collection do
+      get 'stats'    
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
