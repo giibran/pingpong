@@ -16,12 +16,12 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%=  1%></td>
-        <td><%= 1 %></td>
-        <td><%= 1 %></td>
-        <td><%=  1%></td>
-        <td><%=  1%></td>
-        <td><%=  1%></td>
+        <td><%= player.name %></td>
+        <td><%= player.win_ratio %></td>
+        <td><%= player.wins %></td>
+        <td><%= player.losses %></td>
+        <td><%= player.matchs_played %></td>
+        <td><%= "%.2f" % player.average_points_scored%></td>
         <td><%=  1%></td>
         <td><%=  1%></td>
       </tr>

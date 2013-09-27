@@ -12,12 +12,32 @@ class Player < ActiveRecord::Base
   	self.matches.where(:winner_id => self.id).count
   end
 
+  def matchs_played
+    self.matches.count
+  end
+
   def losses
   	self.matches.count - self.matches.where(:winner_id => self.id).count
   end
 
   def win_ratio
   	(self.wins * 100) / self.matches.count
+  end
+
+  def my_score(match)
+    if match.player1_id == self.id
+      match.score_player1
+    else
+      match.score_player2
+    end
+  end
+
+  def average_points_scored
+    counter = 0.0
+    self.matches.each do |match|
+      counter += self.my_score(match)
+    end 
+    counter / self.matchs_played
   end
 
 end
