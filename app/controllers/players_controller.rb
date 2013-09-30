@@ -61,7 +61,7 @@ class PlayersController < ApplicationController
     end
   end
 
-  def status
+  def stats
     @players = Player.all
   end
 
