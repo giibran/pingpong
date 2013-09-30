@@ -67,3 +67,11 @@ div {
     list-style: square;
   }
 }
+table
+{
+  &.table-sortable {
+    th {
+      cursor : pointer
+    }
+  }
+}
