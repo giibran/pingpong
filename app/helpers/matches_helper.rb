@@ -9,10 +9,11 @@ module MatchesHelper
 	end
 
 	def calculate_date(match)
-		if match.created_at < Time.now - 6.day
+		limit_time = Time.now - 6.day
+		if match.created_at.strftime("%d-%m-%Y %H:%M:%S") < limit_time.strftime("%d-%m-%Y %H:%M:%S")
 			time_ago_in_words(match.created_at)
 		else
-			match.created_at
+			match.created_at.strftime("%d-%m-%Y")
 		end
 	end
 
