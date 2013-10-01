@@ -4,9 +4,9 @@ class Player < ActiveRecord::Base
 	#validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 	validates :name, presence: true
 
-	def filter_by_date(start_date, end_date)
-		self.matches.where("created_at" < "Time.now")
-	end
+	def filter_by_date(start_date, end_date) #validate if < and > are correct
+		 Match.where("matches.created_at BETWEEN '#{end_date}' AND '#{start_date}'")
+  end
 
   def matches
   	Match.where("player1_id = ? OR player2_id = ?", id, id)
