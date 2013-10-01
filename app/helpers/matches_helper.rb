@@ -8,4 +8,12 @@ module MatchesHelper
 		end
 	end
 
+	def calculate_date(match)
+		if match.created_at < Time.now - 6.day
+			time_ago_in_words(match.created_at)
+		else
+			match.created_at
+		end
+	end
+
 end

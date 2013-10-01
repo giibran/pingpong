@@ -10,15 +10,6 @@ class Match < ActiveRecord::Base
 
   before_create :calculate_winner
   before_save :calculate_winner
-  
-  def calculate_date
-		if self.created_at > Time.now - 6.day
-			time_ago_in_words(self.created_at)
-		else
-			self.date
-		end
-	end
-
 
   private
 

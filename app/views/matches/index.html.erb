@@ -20,7 +20,7 @@
         <td><%= match.player2.name %></td>
         <td><%= match.score_player2 %></td>
         <td><%= winner(match) %></td>
-        <td><%= time_ago_in_words(match.created_at)%></td>
+        <td><%= calculate_date(match) %></td>
         <td><%= link_to 'Edit', edit_match_path(match) %></td>
       </tr>
     <% end %>
