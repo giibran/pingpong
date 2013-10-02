@@ -65,6 +65,12 @@ class PlayersController < ApplicationController
     @players = Player.all
   end
 
+  def send_dates
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+    Player.statistics_by_date(start_date, end_date)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_player
