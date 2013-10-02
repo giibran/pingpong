@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-
+  has_and_belongs_to_many :matches
   validates_uniqueness_of :name
   #validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   validates :name, presence: true
@@ -15,27 +15,27 @@ class Player < ActiveRecord::Base
     statistics["matches_played"] = matches_filtered.count
     statistics["losses"] = matches_filtered.count - matches_filtered.where(:winner_id => self.id).count
     statistics["win_ratio"] = (statistics["wins"] * 100.0) / matches_filtered.count
-    statistics["average_points_scored"]
-    statistics["average_points_received"]
+    statistics["average_points_scored"] = self.average_points_scored(matches_filtered)
+    statistics["average_points_received"] =average_points_received(matches_filtered)
     statistics["average_points_differential"] = statistics["average_points_scored"] - statistics["average_points_received"]
     statistics
   end
 
-  def wins
-    self.matches.where(:winner_id => self.id).count
-  end
+  # def wins
+  #   self.matches.where(:winner_id => self.id).count
+  # end
 
-  def matches_played
-    self.matches.count
-  end
+  # def matches_played
+  #   self.matches.count
+  # end
 
-  def losses
-    self.matches.count - self.matches.where(:winner_id => self.id).count
-  end
+  # def losses
+  #   self.matches.count - self.matches.where(:winner_id => self.id).count
+  # end
 
-  def win_ratio
-    (self.wins * 100.0) / self.matches.count
-  end
+  # def win_ratio
+  #   (self.wins * 100.0) / self.matches.count
+  # end
 
   def my_score(match)
     if match.player1_id == self.id
@@ -53,24 +53,25 @@ class Player < ActiveRecord::Base
     end
   end
 
-  def average_points_scored
+  def average_points_scored(matches)
     counter = 0.0
-    self.matches.each do |match|
+    matches.each do |match|
       counter += self.my_score(match)
     end 
-    counter / self.matches_played
+    #Rails.logger.info(">>>>>>>>>>>"+self.class.to_s)
+    counter / self.matches.count
   end
 
-  def average_points_received
+  def average_points_received(matches)
     counter = 0.0
-    self.matches.each do |match|
+    matches.each do |match|
       counter += self.opponent_score(match)
     end 
-    counter / self.matches_played
+    counter / self.matches.count
   end
 
-  def average_points_differential
-    self.average_points_scored - self.average_points_received
-  end
+  # def average_points_differential
+  #   self.average_points_scored - self.average_points_received
+  # end
 
 end

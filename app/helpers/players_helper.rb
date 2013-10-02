@@ -10,4 +10,8 @@ module PlayersHelper
   	end_date = end_date.strftime("%Y-%m-%d %H:%M:%S")
   end
 
+  def statistics_helper(player)
+  	player.statistics_by_date(Time.now, 500.days_ago)
+  end
+
 end

@@ -17,7 +17,7 @@
     <% @players.each do |player| %>
       <tr>
         <td><%= player.name %></td>
-        <td><%= "%.2f" % player.win_ratio %></td>
+        <td><%= "%.2f" % player.statistics_helper["win_ratio"] %></td>
         <td><%= player.wins %></td>
         <td><%= player.losses %></td>
         <td><%= player.matches_played %></td>
